@@ -27,6 +27,8 @@
 .yarnrc.yml
 .pnp.loader.mjs
 yarn.lock
+.pnp.cjs
+
 # debug
 npm-debug.log*
 yarn-debug.log*
