@@ -22,7 +22,9 @@ export default function Home() {
 	useEffect(() => {
 		if (status === 'authenticated') {
 			setHasSession(true);
-			unityContext.send('ReceiveLoginManager', 'ReceiveLogin', session.user!!.name as string);
+
+			unityContext.send('PlayFabLoginManager', 'ReceiveLogin', session!!.user!!.name || undefined);
+			unityContext.send('PlayFabLoginManager', 'ReceiveLoginEmail', session!!.user!!.email || undefined);
 		} else {
 			setHasSession(false);
 		}
@@ -30,42 +32,39 @@ export default function Home() {
 
 	return (
 		<main className={ styles.main }>
-			<div className={ styles.windowBar }>
-				{
-					hasSession && (
-						<>
-							<div className={ styles.profile }>
-								<div className={ styles.info }>
-									<img src={ session!!.user!!.image || undefined } alt={ 'Profile Image' } width={ 32 } height={ 32 } />
-									<p>{ session!!.user!!.name }</p>
+			<div className={ styles.game }>
+				<div className={ styles.windowBar }>
+					{
+						hasSession && (
+							<>
+								<div className={ styles.profile }>
+									<div className={ styles.info }>
+										<img src={ session!!.user!!.image || undefined } alt={ 'Profile Image' } width={ 32 } height={ 32 } />
+										<p>{ session!!.user!!.name }</p>
+									</div>
+									<button className={ styles.logoutButton } onClick={ async () => {
+										await signOut();
+									} }>
+										로그아웃
+										<LuLogOut />
+									</button>
 								</div>
-								<button className={ styles.logoutButton } onClick={ async () => {
-									await signOut();
-								} }>
-									로그아웃
-									<LuLogOut />
-								</button>
-							</div>
-							<CgArrowsExpandRight onClick={ () => {
-								console.log(unityContext);
+								<CgArrowsExpandRight onClick={ () => {
+									console.log(unityContext);
 
-								setIsFullscreen(!isFullscreen);
-								unityContext.setFullscreen(!isFullscreen);
-							} } />
-						</>
-					)
-				}
+									setIsFullscreen(!isFullscreen);
+									unityContext.setFullscreen(!isFullscreen);
+								} } />
+							</>
+						)
+					}
+				</div>
+				<Unity unityContext={ unityContext } style={ {
+					width: '100%',
+					height: 'auto',
+				} } />
+				<div className={ styles.bottomBar } />
 			</div>
-			<Unity unityContext={ unityContext } style={ {
-				width: '100%',
-				height: 'auto',
-			} } />
-			<button onClick={ () => {
-				console.log(session);
-				console.log(status);
-			} }>
-				Log Session
-			</button>
 		</main>
 	);
 }

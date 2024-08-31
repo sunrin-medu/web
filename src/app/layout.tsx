@@ -8,8 +8,17 @@ import React from 'react';
 const inter = Inter({ subsets: [ 'latin' ] });
 
 export const metadata: Metadata = {
-	title: 'Sunrin MEDU',
-	description: 'Metaverse',
+	title: 'MEDU',
+	description: 'K 디지털 콘텐츠 메타버스 경진대회 - Sunrin MEDU 팀',
+	openGraph: {
+		title: 'MEDU',
+		description: 'K 디지털 콘텐츠 메타버스 경진대회 - Sunrin MEDU 팀',
+		type: 'website',
+		locale: 'ko_KR',
+		siteName: 'Sunrin MEDU',
+		images: [ '/logo.png' ],
+		url: 'https://sunrinmedu.life/',
+	},
 };
 
 export default function RootLayout({
@@ -22,7 +31,7 @@ export default function RootLayout({
 		<body className={ inter.className }>
 			<NextAuthProvider>
 				{ children }
-			</NextAuthProvider>s
+			</NextAuthProvider>
 		</body>
 		</html>
 	);

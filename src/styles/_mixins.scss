@@ -1,0 +1,12 @@
+@mixin unityBar($height: 48px) {
+  width: 100%;
+  height: $height;
+
+  background-color: #FFBD59;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-inline: 20px;
+}
