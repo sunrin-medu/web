@@ -15,8 +15,6 @@
 
 # production
 /public/build
-/public/unity
-
 # misc
 .DS_Store
 *.pem

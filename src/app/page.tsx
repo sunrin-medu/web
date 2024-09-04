@@ -23,8 +23,11 @@ export default function Home() {
 		if (status === 'authenticated') {
 			setHasSession(true);
 
-			unityContext.send('PlayFabLoginManager', 'ReceiveLogin', session!!.user!!.name || undefined);
-			unityContext.send('PlayFabLoginManager', 'ReceiveLoginEmail', session!!.user!!.email || undefined);
+			console.log('Loaded', unityContext);
+			unityContext.send('PlayFabLoginManager', 'ReceiveLogin', session?.user?.name || undefined);
+			unityContext.send('PlayFabLoginManager', 'ReceiveLoginEmail', session?.user?.email || undefined);
+			// unityContext.send('PlayFabLoginManagerToken', 'ReceiveLoginGoogle', (session as any).id_token || undefined);
+			console.log('Data sent');
 		} else {
 			setHasSession(false);
 		}
@@ -65,6 +68,10 @@ export default function Home() {
 				} } />
 				<div className={ styles.bottomBar } />
 			</div>
+			<button onClick={ () => {
+				console.log(session, status);
+			} }>Log Session
+			</button>
 		</main>
 	);
 }

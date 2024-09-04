@@ -8,6 +8,7 @@ import React from 'react';
 const inter = Inter({ subsets: [ 'latin' ] });
 
 export const metadata: Metadata = {
+	metadataBase: new URL('http://localhost:3000'),
 	title: 'MEDU',
 	description: 'K 디지털 콘텐츠 메타버스 경진대회 - Sunrin MEDU 팀',
 	openGraph: {

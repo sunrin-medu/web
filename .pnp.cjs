@@ -28,6 +28,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@types/node", "npm:20.16.2"],\
+          ["@types/nodemailer", "npm:6.4.15"],\
           ["@types/react", "npm:18.3.4"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["eslint", "npm:8.57.0"],\
@@ -35,6 +36,7 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:14.2.7"],\
           ["next-auth", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:4.24.7"],\
           ["nextjs-unity-webgl", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:8.6.0"],\
+          ["nodemailer", "npm:6.9.14"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:18.3.1"],\
           ["react-icons", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:5.3.0"],\
@@ -393,6 +395,24 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@types/node", "npm:20.16.2"],\
           ["undici-types", "npm:6.19.8"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:22.5.2", {\
+        "packageLocation": "../../../.yarn/berry/cache/@types-node-npm-22.5.2-430cf418f9-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:22.5.2"],\
+          ["undici-types", "npm:6.19.8"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/nodemailer", [\
+      ["npm:6.4.15", {\
+        "packageLocation": "../../../.yarn/berry/cache/@types-nodemailer-npm-6.4.15-1f837036d5-10c0.zip/node_modules/@types/nodemailer/",\
+        "packageDependencies": [\
+          ["@types/nodemailer", "npm:6.4.15"],\
+          ["@types/node", "npm:22.5.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -3249,13 +3269,13 @@ const RAW_RUNTIME_STATE =
           ["@babel/runtime", "npm:7.25.4"],\
           ["@panva/hkdf", "npm:1.2.1"],\
           ["@types/next", null],\
-          ["@types/nodemailer", null],\
+          ["@types/nodemailer", "npm:6.4.15"],\
           ["@types/react", "npm:18.3.4"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["cookie", "npm:0.5.0"],\
           ["jose", "npm:4.15.9"],\
           ["next", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:14.2.7"],\
-          ["nodemailer", null],\
+          ["nodemailer", "npm:6.9.14"],\
           ["oauth", "npm:0.9.15"],\
           ["openid-client", "npm:5.6.5"],\
           ["preact", "npm:10.23.2"],\
@@ -3314,6 +3334,15 @@ const RAW_RUNTIME_STATE =
           ["semver", "npm:7.6.3"],\
           ["tar", "npm:6.2.1"],\
           ["which", "npm:4.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["nodemailer", [\
+      ["npm:6.9.14", {\
+        "packageLocation": "../../../.yarn/berry/cache/nodemailer-npm-6.9.14-907ddc0136-10c0.zip/node_modules/nodemailer/",\
+        "packageDependencies": [\
+          ["nodemailer", "npm:6.9.14"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -4341,6 +4370,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["sunrin-medu", "workspace:."],\
           ["@types/node", "npm:20.16.2"],\
+          ["@types/nodemailer", "npm:6.4.15"],\
           ["@types/react", "npm:18.3.4"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["eslint", "npm:8.57.0"],\
@@ -4348,6 +4378,7 @@ const RAW_RUNTIME_STATE =
           ["next", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:14.2.7"],\
           ["next-auth", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:4.24.7"],\
           ["nextjs-unity-webgl", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:8.6.0"],\
+          ["nodemailer", "npm:6.9.14"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:18.3.1"],\
           ["react-icons", "virtual:512be4dda1406901f0961baaae04d18cc04ff38dc435af07dee362901bded049e12f57615fe25c6fe5dd6e10d3e238e6f8a7bb5038af92a55033be3ff5aae6f1#npm:5.3.0"],\
