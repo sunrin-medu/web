@@ -1,31 +1,31 @@
 {
-  "name": "sunrin-medu",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next public/unity",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "14.2.7",
-    "next-auth": "^4.24.7",
-    "nextjs-unity-webgl": "^8.6.0",
-    "nodemailer": "^6.9.14",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.3.0",
-    "sass": "^1.77.8"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/nodemailer": "^6",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.7",
-    "typescript": "^5"
-  },
-  "packageManager": "yarn@4.4.1"
+	"name": "sunrin-medu",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"next": "14.2.7",
+		"next-auth": "^4.24.7",
+		"nextjs-unity-webgl": "^8.6.0",
+		"nodemailer": "^6.9.14",
+		"react": "^18",
+		"react-dom": "^18",
+		"react-icons": "^5.3.0",
+		"sass": "^1.77.8"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/nodemailer": "^6",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^8",
+		"eslint-config-next": "14.2.7",
+		"typescript": "^5"
+	},
+	"packageManager": "yarn@4.4.1"
 }
