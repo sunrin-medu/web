@@ -54,9 +54,10 @@ export default function Home() {
 								</div>
 								<CgArrowsExpandRight onClick={ () => {
 									console.log(unityContext);
-
-									setIsFullscreen(!isFullscreen);
-									unityContext.setFullscreen(!isFullscreen);
+									if (unityContext.unityInstance) {
+										setIsFullscreen(!isFullscreen);
+										unityContext.setFullscreen(!isFullscreen);
+									}
 								} } />
 							</>
 						)
