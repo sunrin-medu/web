@@ -5,12 +5,10 @@ import { signIn, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import Loader from '@/components/loader';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 
 export default function Page({ params }: { params: { provider: string } }) {
 	const [ hasSession, setHasSession ] = useState(false);
 	const { data: session, status } = useSession();
-	const pathname = usePathname();
 
 	useEffect(() => {
 		if (status === 'authenticated') {
