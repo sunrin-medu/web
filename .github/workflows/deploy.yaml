@@ -22,6 +22,7 @@ jobs:
           script: |
             cd /home/sunrintoday/projects/medu
             git pull origin main
+            git lfs pull
             yarn install
             yarn build
             pm2 restart MEDU
