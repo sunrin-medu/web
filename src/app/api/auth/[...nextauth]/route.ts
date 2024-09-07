@@ -13,21 +13,6 @@ const handler = NextAuth({
 			clientSecret: process.env.GITHUB_CLIENT_SECRET ?? '',
 		}),
 	],
-	callbacks: {
-		async jwt({ token, user, account }: any) {
-			if (account) {
-				token.id_token = account.id_token;
-			}
-
-			return token;
-		},
-
-		async session({ session, token }: any) {
-			session.id_token = token.id_token as string | undefined;
-
-			return session;
-		},
-	},
 	secret: process.env.NEXTAUTH_SECRET,
 });
 
