@@ -37,8 +37,7 @@ export default function Home() {
 	return (
 		<main className={ styles.main }>
 			<div className={ styles.loadingBar } style={ {
-				// width: loadingProgression == 1 ? 0 : `${ 100 * loadingProgression }%`,
-				width: '100%',
+				width: loadingProgression == 1 ? 0 : `${ 100 * loadingProgression }%`,
 			} } />
 			<div className={ styles.game }>
 				<div className={ styles.windowBar }>
