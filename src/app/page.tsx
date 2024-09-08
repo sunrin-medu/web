@@ -17,7 +17,14 @@ const unityContext = new UnityContext({
 export default function Home() {
 	const [ hasSession, setHasSession ] = useState(false);
 	const [ isFullscreen, setIsFullscreen ] = useState(false);
-	const { data: session, status } = useSession();
+	const { data: session, status, update } = useSession();
+	const [ sessionData, setSessionData ] = useState();
+
+	useEffect(() => {
+		if (status === 'unauthenticated') {
+			signOut();
+		}
+	}, []);
 
 	useEffect(() => {
 		if (status === 'authenticated') {
@@ -38,11 +45,12 @@ export default function Home() {
 			<div className={ styles.game }>
 				<div className={ styles.windowBar }>
 					{
-						hasSession && (
+						hasSession ? (
 							<>
 								<div className={ styles.profile }>
 									<div className={ styles.info }>
-										<img src={ session!!.user!!.image || undefined } alt={ 'Profile Image' } width={ 32 } height={ 32 } />
+										<img src={ session!!.user!!.image || undefined } alt={ 'Profile Image' } width={ 32 }
+										     height={ 32 } />
 										<p>{ session!!.user!!.name }</p>
 									</div>
 									<button className={ styles.logoutButton } onClick={ async () => {
@@ -52,16 +60,18 @@ export default function Home() {
 										<LuLogOut />
 									</button>
 								</div>
-								<CgArrowsExpandRight onClick={ () => {
-									console.log(unityContext);
-									if (unityContext.unityInstance) {
-										setIsFullscreen(!isFullscreen);
-										unityContext.setFullscreen(!isFullscreen);
-									}
-								} } />
 							</>
+						) : (
+							<div></div>
 						)
 					}
+					<CgArrowsExpandRight onClick={ () => {
+						console.log(unityContext);
+						if (unityContext.unityInstance) {
+							setIsFullscreen(!isFullscreen);
+							unityContext.setFullscreen(!isFullscreen);
+						}
+					} } />
 				</div>
 				<Unity unityContext={ unityContext } style={ {
 					width: '100%',
@@ -70,7 +80,7 @@ export default function Home() {
 				<div className={ styles.bottomBar } />
 			</div>
 			<button onClick={ () => {
-				console.log(session, status);
+				console.log(session!!.user!!, status);
 			} }>Log Session
 			</button>
 		</main>

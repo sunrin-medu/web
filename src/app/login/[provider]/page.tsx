@@ -8,8 +8,8 @@ import Image from 'next/image';
 
 export default function Page({ params }: { params: { provider: string } }) {
 	const [ hasSession, setHasSession ] = useState(false);
-	const { data: session, status } = useSession();
-	
+	const { data: session, status, update } = useSession();
+
 	useEffect(() => {
 		if (status === 'authenticated') {
 			setHasSession(true);
