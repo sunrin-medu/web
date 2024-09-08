@@ -2,11 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import nodemailer from 'nodemailer';
 
-export type EmailData = {
-	from: string;
-	subject: string;
-	message: string;
-};
 
 const transporter = nodemailer.createTransport({
 	host: 'smtp.gmail.com',
@@ -31,7 +26,7 @@ async function sendEmail(email: string, code: string) {
     <p style="color: #f12929;">*외부 유출에 주의해 주세요!</p>
     `,
 	};
-
+ 
 	return transporter.sendMail(mailData);
 }
 
