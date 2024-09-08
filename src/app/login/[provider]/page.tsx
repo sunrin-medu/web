@@ -23,7 +23,9 @@ export default function Page({ params }: { params: { provider: string } }) {
 	};
 
 	useEffect(() => {
-		handleSignIn();
+		if (status === 'unauthenticated') {
+			handleSignIn();
+		}
 	}, [ status ]);
 
 	return (
