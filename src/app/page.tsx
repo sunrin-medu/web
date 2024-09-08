@@ -75,7 +75,7 @@ export default function Home() {
 				</div>
 				<Unity unityContext={ unityContext } style={ {
 					width: '100%',
-					height: 'auto',
+					aspectRatio: '16 / 9',
 				} } />
 				<div className={ styles.bottomBar } />
 			</div>

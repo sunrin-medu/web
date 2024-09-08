@@ -50,10 +50,22 @@ export async function POST(req: NextRequest, res: NextResponse) {
 				email: data.email,
 				code,
 			},
+		}, {
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'POST',
+				'Access-Control-Allow-Headers': 'Content-Type',
+			},
 		});
 	} catch (error) {
 		console.error('Error processing the request:', error);
-		return NextResponse.json({ success: false, error: 'Invalid request format' }, { status: 400 });
+		return NextResponse.json({ success: false, error: 'Invalid request format' }, {
+			status: 400, headers: {
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'POST',
+				'Access-Control-Allow-Headers': 'Content-Type',
+			},
+		});
 	}
 }
 
