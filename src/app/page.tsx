@@ -1,38 +1,32 @@
 'use client';
 
 import styles from './page.module.scss';
-import Unity, { UnityContext } from 'nextjs-unity-webgl';
 import { signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { CgArrowsExpandRight } from 'react-icons/cg';
 import { LuLogOut } from 'react-icons/lu';
-
-const unityContext = new UnityContext({
-	loaderUrl: 'unity/unity.loader.js',
-	dataUrl: 'unity/unity.data',
-	frameworkUrl: 'unity/unity.framework.js',
-	codeUrl: 'unity/unity.wasm',
-});
+import { Unity, useUnityContext } from 'react-unity-webgl';
+import Loader from '@/components/loader';
 
 export default function Home() {
 	const [ hasSession, setHasSession ] = useState(false);
 	const [ isFullscreen, setIsFullscreen ] = useState(false);
-	const { data: session, status, update } = useSession();
-	const [ sessionData, setSessionData ] = useState();
+	const { data: session, status } = useSession();
 
-	useEffect(() => {
-		if (status === 'unauthenticated') {
-			signOut();
-		}
-	}, []);
+	const { unityProvider, isLoaded, sendMessage, loadingProgression, requestFullscreen } = useUnityContext({
+		loaderUrl: 'unity/unity.loader.js',
+		dataUrl: 'unity/unity.data',
+		frameworkUrl: 'unity/unity.framework.js',
+		codeUrl: 'unity/unity.wasm',
+	});
 
 	useEffect(() => {
 		if (status === 'authenticated') {
 			setHasSession(true);
 
-			console.log('Loaded', unityContext);
-			unityContext.send('PlayFabLoginManager', 'ReceiveLogin', session?.user?.name || undefined);
-			unityContext.send('PlayFabLoginManager', 'ReceiveLoginEmail', session?.user?.email || undefined);
+			console.log('Loaded', unityProvider);
+			sendMessage('PlayFabLoginManager', 'ReceiveLogin', session?.user?.name || undefined);
+			sendMessage('PlayFabLoginManager', 'ReceiveLoginEmail', session?.user?.email || undefined);
 			// unityContext.send('PlayFabLoginManagerToken', 'ReceiveLoginGoogle', (session as any).id_token || undefined);
 			console.log('Data sent');
 		} else {
@@ -42,6 +36,9 @@ export default function Home() {
 
 	return (
 		<main className={ styles.main }>
+			<div className={ styles.loadingBar } style={ {
+				width: loadingProgression == 1 ? 0 : `${ 100 * loadingProgression }%`,
+			} } />
 			<div className={ styles.game }>
 				<div className={ styles.windowBar }>
 					{
@@ -66,17 +63,23 @@ export default function Home() {
 						)
 					}
 					<CgArrowsExpandRight onClick={ () => {
-						console.log(unityContext);
-						if (unityContext.unityInstance) {
-							setIsFullscreen(!isFullscreen);
-							unityContext.setFullscreen(!isFullscreen);
-						}
+						console.log(unityProvider);
+						setIsFullscreen(!isFullscreen);
+						requestFullscreen(!isFullscreen);
 					} } />
 				</div>
-				<Unity unityContext={ unityContext } style={ {
+				<Unity unityProvider={ unityProvider } style={ {
 					width: '100%',
 					aspectRatio: '16 / 9',
 				} } />
+				{
+					isLoaded || (
+						<div className={ styles.unityLoading }>
+							<h1>Loading</h1>
+							<Loader />
+						</div>
+					)
+				}
 				<div className={ styles.bottomBar } />
 			</div>
 			<button onClick={ () => {

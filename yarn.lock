@@ -2739,15 +2739,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextjs-unity-webgl@npm:^8.6.0":
-  version: 8.6.0
-  resolution: "nextjs-unity-webgl@npm:8.6.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10c0/0272207ec8f3e84f64b33dd2812a9580fbcbd7c5f85ed9e9d132ad825e72e6358ccfc684b0f9e968cb8ca985f5173af819f585bab3c14364acce2d74a4330daa
-  languageName: node
-  linkType: hard
-
 "node-gyp@npm:latest":
   version: 10.2.0
   resolution: "node-gyp@npm:10.2.0"
@@ -3156,6 +3147,15 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 10c0/33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
+  languageName: node
+  linkType: hard
+
+"react-unity-webgl@npm:^9.5.2":
+  version: 9.5.2
+  resolution: "react-unity-webgl@npm:9.5.2"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/6462b1560a9c12fd57f50f62beb5c723401e6948293cf888bd1c87fe110e50de2e3c056ac58d982125259d07d11dd77d0654f1d2faf326646c194f8cb4092b75
   languageName: node
   linkType: hard
 
@@ -3672,11 +3672,11 @@ __metadata:
     eslint-config-next: "npm:14.2.7"
     next: "npm:14.2.7"
     next-auth: "npm:^4.24.7"
-    nextjs-unity-webgl: "npm:^8.6.0"
     nodemailer: "npm:^6.9.14"
     react: "npm:^18"
     react-dom: "npm:^18"
     react-icons: "npm:^5.3.0"
+    react-unity-webgl: "npm:^9.5.2"
     sass: "npm:^1.77.8"
     typescript: "npm:^5"
   languageName: unknown

@@ -14,11 +14,28 @@
 
   background: linear-gradient(#fdcf9b, #f6d4af);
 
+  .loadingBar {
+    width: 0;
+    height: 12px;
+    background-color: #ffa116;
+
+    position: fixed;
+    top: 0;
+
+    border-bottom-right-radius: 12px;
+    border-top-right-radius: 12px;
+
+    left: 0;
+
+  }
+
   .game {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    position: relative;
 
     width: 90%;
 
@@ -101,6 +118,28 @@
         &:active {
           height: 50%;
         }
+      }
+    }
+
+    .unityLoading {
+      position: absolute;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      top: 48px;
+
+      background-color: white;
+
+      width: 100%;
+      height: calc(100% - 84px);
+
+      h1 {
+        font-family: 'CookieRun-Regular', sans-serif;
+        font-size: 32px;
+        color: #FFBD59;
       }
     }
 

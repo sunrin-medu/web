@@ -11,11 +11,11 @@
 	"dependencies": {
 		"next": "14.2.7",
 		"next-auth": "^4.24.7",
-		"nextjs-unity-webgl": "^8.6.0",
 		"nodemailer": "^6.9.14",
 		"react": "^18",
 		"react-dom": "^18",
 		"react-icons": "^5.3.0",
+		"react-unity-webgl": "^9.5.2",
 		"sass": "^1.77.8"
 	},
 	"devDependencies": {
