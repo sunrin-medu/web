@@ -45,32 +45,37 @@ export default function Home() {
 						hasSession ? (
 							<>
 								<div className={ styles.profile }>
-									<div className={ styles.info }>
-										<img src={ session!!.user!!.image || undefined } alt={ 'Profile Image' } width={ 32 }
-										     height={ 32 } />
-										<p>{ session!!.user!!.name }</p>
-									</div>
-									<button className={ styles.logoutButton } onClick={ async () => {
-										await signOut();
-									} }>
-										로그아웃
-										<LuLogOut />
-									</button>
+									<img src={ session!!.user!!.image || undefined } alt={ 'Profile Image' } width={ 32 }
+									     height={ 32 } />
+									<p>{ session!!.user!!.name }</p>
 								</div>
 							</>
 						) : (
 							<div></div>
 						)
 					}
-					<CgArrowsExpandRight onClick={ () => {
-						console.log(unityProvider);
-						setIsFullscreen(!isFullscreen);
-						requestFullscreen(!isFullscreen);
-					} } />
+					<div className={ styles.rightButtons }>
+						{
+							hasSession && (
+								<button className={ styles.logoutButton } onClick={ async () => {
+									await signOut();
+								} }>
+									<LuLogOut />
+									눌러서 로그아웃
+								</button>
+							)
+						}
+						<CgArrowsExpandRight onClick={ () => {
+							console.log(unityProvider);
+							setIsFullscreen(!isFullscreen);
+							requestFullscreen(!isFullscreen);
+						} } className={ styles.fullscreenButton } />
+					</div>
 				</div>
 				<Unity unityProvider={ unityProvider } style={ {
 					width: '100%',
 					aspectRatio: '16 / 9',
+					borderRadius: '16px',
 				} } />
 				{
 					isLoaded || (
@@ -82,10 +87,6 @@ export default function Home() {
 				}
 				<div className={ styles.bottomBar } />
 			</div>
-			<button onClick={ () => {
-				console.log(session!!.user!!, status);
-			} }>Log Session
-			</button>
 		</main>
 	);
 }

@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { provider: string } }) {
 
 	return (
 		<div className={ styles.login }>
-			<Image src={ '/logo.png' } alt={ 'Logo' } width={ 200 } height={ 200 } />
+			<Image src={ '/logo.png' } alt={ 'Logo' } width={ 100 } height={ 100 } />
 			{
 				hasSession ? (
 					<Success />
