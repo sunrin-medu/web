@@ -14,23 +14,6 @@
 
   background: linear-gradient(#fdcf9b, #f6d4af);
 
-  .loadingBar {
-    width: 0;
-    height: 12px;
-    background-color: #ffa116;
-
-
-    z-index: 1;
-    position: fixed;
-    top: 0;
-
-    border-bottom-right-radius: 12px;
-    border-top-right-radius: 12px;
-
-    left: 0;
-
-  }
-
   .game {
     display: flex;
     flex-direction: column;

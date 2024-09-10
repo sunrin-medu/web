@@ -36,9 +36,6 @@ export default function Home() {
 
 	return (
 		<main className={ styles.main }>
-			<div className={ styles.loadingBar } style={ {
-				width: loadingProgression == 1 ? 0 : `${ 100 * loadingProgression }%`,
-			} } />
 			<div className={ styles.game }>
 				<div className={ styles.windowBar }>
 					{
@@ -57,7 +54,8 @@ export default function Home() {
 					<div className={ styles.rightButtons }>
 						{
 							hasSession && (
-								<button className={ styles.logoutButton } onClick={ async () => {
+								<button className={ styles.logoutButton } onClick={ async (e) => {
+									e.preventDefault();
 									await signOut();
 								} }>
 									<LuLogOut />
@@ -80,7 +78,7 @@ export default function Home() {
 				{
 					isLoaded || (
 						<div className={ styles.unityLoading }>
-							<h1>Loading</h1>
+							<h1>Loading { parseInt(String(loadingProgression * 100)) }%</h1>
 							<Loader />
 						</div>
 					)
