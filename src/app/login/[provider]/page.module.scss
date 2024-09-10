@@ -10,9 +10,8 @@
 
   justify-content: center;
   align-items: center;
-
+ 
   .success {
-    font-family: 'CookieRun-Regular', sans-serif;
     color: #FFBD59;
 
     display: flex;
@@ -47,7 +46,6 @@
       color: white;
       cursor: pointer;
       transition: background-color .05s ease-in-out;
-      font-family: 'CookieRun-Regular', sans-serif;
 
       &:hover {
         background-color: #FFA940;
